@@ -1,7 +1,7 @@
 Import-Module ActiveDirectory
 
 $fecha = Get-Date
-$pathLogs = \\srvfs\F$\FS\Geradm2\Actualizaciondead\Logs\historialcambios.txt
+$pathLogs = \\srvfs\F$\FS\Geradm2\Actualizaciondead\Log\historialcambios.txt
 Import-Csv \\srvfs\F$\FS\Geradm2\Actualizaciondead\Intranet.csv -Delimiter ';' -Encoding UTF7 | ForEach-Object {
 
 #variabes csv
@@ -13,7 +13,7 @@ $anexo = $_."Anexo"
 $area = $_."Area"
 $compañia = $_."Empresa"
 $oficina = "" + $_."Ubicacion"+ "-"+ $_."Piso"+ "-" + $_."Sucursal"
-$Rutjefatura = $_."Rut Jefatura" + $_."Adicional"
+$Rutjefatura = $_."Rut Jefatura"
 $manager = Get-ADUser -Filter "employeeNumber -like '$Rutjefatura*'" | Select-Object DistinguishedName -ExpandProperty Distinguishedname
 
 
