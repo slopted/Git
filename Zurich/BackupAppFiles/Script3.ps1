@@ -1,41 +1,38 @@
-$nroChange = Read-Host -Prompt 'Input your Change Number:'
+##PROD##
+#Set-AzContext -Subscription "681b3fc7-7337-4919-8063-586130a56c9f"
+##QA##
+Set-AzContext -Subscription "251f8d88-2d55-4b29-bb93-c4feb93b3f8a"
+$nroChange = 'CHG9298272'
 $appServiceName = 'LA-CL-API-WEBAPP00'
-$fileName = $appServiceName + $nroChange
-Write-Host "You change number is:'$nroChange' and '$User' on '$Date'"
+$date = Get-Date
+$fileName = $appServiceName + '-' +$nroChange + '-' + $date.Day +"-"+$date.Month +"-"+ $date.Year
+
+Write-Host "Your change number is:'$nroChange'"
+Write-Host "Your App Service name is:'$appServiceName'"
+Write-Host "Your backup file name will be:'$fileName'"
 
 
+        $username = "`$" + $appServiceName
+        $password = Get-AzKeyVaultSecret -VaultName "LA-CL-KEYV-AUTOMATION" -Name "$appServiceName" -AsPlainText
+        $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
+        $userAgent = "powershell/1.0"
+        $apiUrl = "https://"+$appServiceName+".scm.azurewebsites.net:443/api/zip/site/wwwroot/"
+        $filePath = "c:\temp\$fileName.zip"
 
-$yeah = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes","Description."
-$nah = New-Object System.Management.Automation.Host.ChoiceDescription "&No","Description."
-$abort = New-Object System.Management.Automation.Host.ChoiceDescription "&Cancel","Description."
-$options = [System.Management.Automation.Host.ChoiceDescription[]]($yeah, $nah, $abort)
-$heading = "Demo"
-$mess = "are you sure you want to continue?"
-$rslt = $host.ui.PromptForChoice($heading, $mess, $options, 1)
-switch ($rslt) {
-    0{ 
-        Write-Host "Yes" -ForegroundColor Green
-    }1{
-    Write-Host "No" -ForegroundColor Red
-    }2{
-    Write-Host "Cancel" -ForegroundColor Red
-    }
-    }
+        Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method GET -OutFile $filePath -ContentType "multipart/form-data"
+        Remove-Variable password
+        Remove-Variable base64AuthInfo
+        
+                    $resourceGroupName = 'LA-CL-IaaS-Automation'
+                    $storageAccName = 'lsclsaautomation'
+                    $fileShareName = 'backups'
+                    $folderPath = 'BackupSOAP'
 
-
-
-
-
-
-
-$username = "`$LA-CL-API-WEBAPP00"
-$password = "QKg8CcapoYlz0oEovC0zjbtvyyx7bcuJD3jy9bDQYZnauA842k4Cj5j1yweu"
-
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-$userAgent = "powershell/1.0"
-$appServiceName = 'LA-CL-API-WEBAPP00'
-
-$apiUrl = https://$appServiceName.scm.azurewebsites.net:443/api/zip/site/wwwroot/
-
-$filePath = "c:\temp\$fileName.zip"
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method GET -OutFile $filePath -ContentType "multipart/form-data"
+                    Write-Host -ForegroundColor Green "Uploading files to file share.."    
+                    ## Get the storage account context  
+                    $ctx=(Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccName).Context  
+                    ## Get the file share  
+                    $fileShare=Get-AZStorageShare -Context $ctx -Name $fileShareName  
+                    ## Upload the file  
+                    Set-AzStorageFileContent -ShareName $fileShare.Name -Context $ctx -Source $filePath -Path $folderPath -Force
+                    Write-Host -ForegroundColor Green "Files uploaded to file share"

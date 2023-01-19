@@ -1,8 +1,8 @@
-Set-AzContext -Subscription "251f8d88-2d55-4b29-bb93-c4feb93b3f8a"
+Set-AzContext -Subscription "681b3fc7-7337-4919-8063-586130a56c9f"
 
-$ResourceGroupName = "LA-CL-APIS-SOAP"
-#"LA-CL-APIPLAN-P1"
-$AppServicePlan = "LA-CL-APIPLAN-P1"
+$ResourceGroupName = "LA-CL-APPS-SOAP"
+#"LA-CL-APP-PLAN-P1"
+$AppServicePlan = "LA-CL-APP-PLAN-P1"
 $Tier = "PremiumV2" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -18,8 +18,8 @@ Foreach($app in $apps)
 }
 
 
-#"LA-CL-APIPLAN-P2"
-$AppServicePlan = "LA-CL-APIPLAN-P2"
+#"LA-CL-APP-PLAN-P2"
+$AppServicePlan = "LA-CL-APP-PLAN-P2"
 $Tier = "PremiumV2" 
 $Size = "Medium"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -35,8 +35,8 @@ Foreach($app in $apps)
 }
 
 
-#"LA-CL-APIPLAN-P3-1"
-$AppServicePlan = "LA-CL-APIPLAN-P3-1"
+#"LA-CL-APP-PLAN-P3-1"
+$AppServicePlan = "LA-CL-APP-PLAN-P3-1"
 $Tier = "PremiumV2" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -52,8 +52,8 @@ Foreach($app in $apps)
 }
 
 
-#"LA-CL-APIPLAN-P3"
-$AppServicePlan = "LA-CL-APIPLAN-P3"
+#"LA-CL-APP-PLAN-P3"
+$AppServicePlan = "LA-CL-APP-PLAN-P3"
 $Tier = "PremiumV2" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -69,8 +69,8 @@ Foreach($app in $apps)
 }
 
 
-#"LA-CL-APIPLAN-P4"
-$AppServicePlan = "LA-CL-APIPLAN-P4"
+#"LA-CL-APP-PLAN-P4"
+$AppServicePlan = "LA-CL-APP-PLAN-P4"
 $Tier = "PremiumV2" 
 $Size = "Medium"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -86,8 +86,8 @@ Foreach($app in $apps)
 }
 
 
-#"LA-CL-APIPLAN-P5"
-$AppServicePlan = "LA-CL-APIPLAN-P5"
+#"LA-CL-APP-PLAN-P5"
+$AppServicePlan = "LA-CL-APP-PLAN-P5"
 $Tier = "Standard" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
@@ -103,3 +103,5 @@ Foreach($app in $apps)
 }
 
 
+Start-Sleep -Seconds 120
+Get-AzureRmWebApp | Select-Object name,state

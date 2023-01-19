@@ -1,4 +1,4 @@
-$appServiceName = 'LA-CL-API-WEBAPP00'
+<#$appServiceName = 'LA-CL-API-WEBAPP00'
  $credential = Get-Credential
  
  $syncParams = @{
@@ -70,7 +70,7 @@ Uri = "$baseUri/v7.2.5/PowerShell-7.2.5-win-x64.msi"
 
 
 
-<#
+
 $cred = Get-Credential
 New-WDPublishSettings -ComputerName owais-1 -Site Site1 -Credentials $cred -AllowUntrusted -SiteUrl "https://www.mywebsite.com" -FileName C:\pprofiles\mywebsite.publishsettings -AgentType wmsvc
 Get-WDPublishSettings cmdlet allows to load values from a publish setting file into PublishSettings object.

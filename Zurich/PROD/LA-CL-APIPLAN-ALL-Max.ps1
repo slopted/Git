@@ -3,8 +3,8 @@ Set-AzContext -Subscription "681b3fc7-7337-4919-8063-586130a56c9f"
 $ResourceGroupName = "LA-CL-APPS-SOAP"
 #"LA-CL-APP-PLAN-P1"
 $AppServicePlan = "LA-CL-APP-PLAN-P1"
-$Tier = "Basic" 
-$Size = "Small"
+$Tier = "PremiumV2" 
+$Size = "Large"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
 
@@ -21,12 +21,12 @@ Foreach($app in $apps)
 #"LA-CL-APP-PLAN-P2"
 $AppServicePlan = "LA-CL-APP-PLAN-P2"
 $Tier = "PremiumV2" 
-$Size = "Small"
+$Size = "Medium"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
 
 Set-AzAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan -Tier "$Tier" -WorkerSize "$Size"
-Set-AzAppServicePlan -NumberofWorkers 1 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
+Set-AzAppServicePlan -NumberofWorkers 4 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
 
 Foreach($app in $apps)
 {
@@ -37,8 +37,8 @@ Foreach($app in $apps)
 
 #"LA-CL-APP-PLAN-P3-1"
 $AppServicePlan = "LA-CL-APP-PLAN-P3-1"
-$Tier = "Standard" 
-$Size = "Small"
+$Tier = "PremiumV2" 
+$Size = "Large"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
 
@@ -54,13 +54,13 @@ Foreach($app in $apps)
 
 #"LA-CL-APP-PLAN-P3"
 $AppServicePlan = "LA-CL-APP-PLAN-P3"
-$Tier = "Standard" 
-$Size = "Small"
+$Tier = "PremiumV2" 
+$Size = "Medium"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
 
 Set-AzAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan -Tier "$Tier" -WorkerSize "$Size"
-Set-AzAppServicePlan -NumberofWorkers 1 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
+Set-AzAppServicePlan -NumberofWorkers 6 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
 
 Foreach($app in $apps)
 {
@@ -71,13 +71,13 @@ Foreach($app in $apps)
 
 #"LA-CL-APP-PLAN-P4"
 $AppServicePlan = "LA-CL-APP-PLAN-P4"
-$Tier = "Standard" 
+$Tier = "PremiumV3" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
 
 Set-AzAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan -Tier "$Tier" -WorkerSize "$Size"
-Set-AzAppServicePlan -NumberofWorkers 1 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
+Set-AzAppServicePlan -NumberofWorkers 5 -Name $AppServicePlan -ResourceGroupName $ResourceGroupName
 
 Foreach($app in $apps)
 {
@@ -87,8 +87,8 @@ Foreach($app in $apps)
 
 
 #"LA-CL-APP-PLAN-P5"
-$AppServicePlan = "LA-CL-APP-PLAN-P5" 
-$Tier = "Standard" 
+$AppServicePlan = "LA-CL-APP-PLAN-P5"
+$Tier = "PremiumV2" 
 $Size = "Small"
 $app=Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroupName -Name $AppServicePlan
 $apps=Get-AzureRmWebApp -AppServicePlan $app
