@@ -13,8 +13,6 @@ $anexo = $_."Anexo"
 $area = $_."Area"
 $compañia = $_."Empresa"
 $oficina = "" + $_."Ubicacion"+ "-"+ $_."Piso"+ "-" + $_."Sucursal"
-$Rutjefatura = $_."Rut Jefatura"
-$manager = Get-ADUser -Filter "employeeNumber -like '$Rutjefatura*'" | Select-Object DistinguishedName -ExpandProperty Distinguishedname
 
 
 #atributos AD
@@ -27,8 +25,6 @@ $ADIpPhone         =$usuario | Select-Object ipPhone -ExpandProperty ipPhone
 $ADDepartment      =$usuario | Select-Object department -ExpandProperty department
 $ADCompany         =$usuario | Select-Object company -ExpandProperty company
 $ADStreetAddress   =$usuario | Select-Object streetAddress -ExpandProperty streetAddress
-$ADmanager         =$usuario | Select-Object manager -ExpandProperty manager
-
 
 ##seteos
 
@@ -86,11 +82,26 @@ $ADmanager         =$usuario | Select-Object manager -ExpandProperty manager
     $usuariomodificado >> $pathLogs
     Get-ADUser $_.Login | set-aduser -StreetAddress $oficina
     }
-
-    #Manager
-    if($manager -ne $ADmanager){
-    $usuariomodificado =""+$fecha +";"+$_.Login+";manager;"+$ADmanager
-    $usuariomodificado >> $pathLogs
-    Get-ADUser $_.Login | set-aduser -manager $manager
-    }
 }
+
+
+##SET-MANAGERS##
+Import-Csv \\srvfs\F$\FS\Geradm2\Actualizaciondead\Intranet.csv -Delimiter ';' -Encoding UTF7 | ForEach-Object {
+
+    #variabes csv
+    $Rutjefatura = $_."Rut Jefatura"
+    $manager = Get-ADUser -Filter "employeeNumber -like '$Rutjefatura*'" | Select-Object DistinguishedName -ExpandProperty Distinguishedname
+    
+    #atributos AD
+    $usuario           =Get-ADUser $_.Login -Properties DisplayName,mail,EmployeeNumber,title,ipPhone,department,company,streetAddress,manager
+    $ADmanager         =$usuario | Select-Object manager -ExpandProperty manager
+    
+    
+    ##seteos
+        #Manager
+        if($manager -ne $ADmanager){
+        $usuariomodificado =""+$fecha +";"+$_.Login+";manager;"+$ADmanager
+        $usuariomodificado >> $pathLogs
+        Get-ADUser $_.Login | set-aduser -manager $manager
+        }
+    }
