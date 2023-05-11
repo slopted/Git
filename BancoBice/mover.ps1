@@ -56,7 +56,7 @@ $ADmanager         =$usuario | Select-Object manager -ExpandProperty manager
     if($cargo -ne $ADTitle){
     $usuariomodificado =""+$fecha +";"+$_.Login+";title;"+$ADTitle
     $usuariomodificado >> $pathLogs
-    Get-ADUser $_.Login | set-aduser -Title $cargo
+    Get-ADUser $_.Login | set-aduser -Title $cargo | set-aduser -Description $cargo
     }
 
     #ipPhone

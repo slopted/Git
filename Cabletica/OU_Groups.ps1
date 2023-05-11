@@ -32,6 +32,11 @@ New-ADOrganizationalUnit -Name "Servicios_de_Dominio" -Path "OU=Grupos,OU=Costa_
     New-ADOrganizationalUnit -Name "RemoteApp" -Path "OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "SCOM" -Path "OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
 
+
+
+
+
+    
     New-ADOrganizationalUnit -Name "ADMT" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "AVANTE" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "CiscoISE" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
@@ -63,7 +68,6 @@ New-ADOrganizationalUnit -Name "Servicios_de_Dominio" -Path "OU=Grupos,OU=Costa_
         New-ADOrganizationalUnit -Name "Isilon" -Path "OU=Grupos de Seguridad,OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "Grupos de Sistemas" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
         New-ADOrganizationalUnit -Name "DLO" -Path "OU=Grupos de Sistemas,OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
-
     New-ADOrganizationalUnit -Name "Impresoras" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "IPAM" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "Laserfiche" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
@@ -73,6 +77,7 @@ New-ADOrganizationalUnit -Name "Servicios_de_Dominio" -Path "OU=Grupos,OU=Costa_
     New-ADOrganizationalUnit -Name "RODC" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "SCOM" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "Services" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
+        New-ADOrganizationalUnit -Name "MSS" -Path "OU=Services,OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "SIE7ECR" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "SIEBEL CRM" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
     New-ADOrganizationalUnit -Name "SQL" -Path "OU=Servicios_de_Dominio,OU=Grupos,OU=Costa_Rica,DC=LLACR,DC=LOCAL"
