@@ -46,4 +46,4 @@ Export-Csv -Encoding UTF8 -Path $Csvfile -NoTypeInformation #-Delimiter “;”
 
 Get-ADComputer -filter * -properties * -ResultSetSize 99999999 | Select-Object Name, servicePrincipalName, OperatingSystem, distinguishedName, Enabled, lastlogondate | Export-CSV -path C:\temp\GetComputers\AllADComputers.csv
 
-Name, servicePrincipalName, OperatingSystem, ipv4Address,distinguishedName, whencreated, Enabled, lastlogondate
+#Name, servicePrincipalName, OperatingSystem, ipv4Address,distinguishedName, whencreated, Enabled, lastlogondate
