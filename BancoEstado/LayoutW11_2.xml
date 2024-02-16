@@ -1,0 +1,33 @@
+<LayoutModificationTemplate xmlns:defaultlayout="
+http://schemas.microsoft.com/Start/2014/FullDefaultLayout"
+xmlns:start="
+http://schemas.microsoft.com/Start/2014/StartLayout"
+Version="1" xmlns="
+http://schemas.microsoft.com/Start/2014/LayoutModification">
+
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride>
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6">
+
+        <start:Group Name="">
+          <start:DesktopApplicationTile DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Panel de Control.lnk" />
+          <start:DesktopApplicationTile DesktopApplicationLinkPath="c:\Solem\CheckId\BioTray\BioWebSocketTray.exe" />
+          <start:DesktopApplicationTile DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Explorador de Archivos.lnk" />
+          <start:DesktopApplicationTile DesktopApplicationLinkPath="D:\Defptr\Defptr.exe" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Navnt\Finesse.lnk" />
+        </start:Group>
+
+        <start:Group Name="">
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationLinkPath="C:\Program Files (x86)\Google\Chrome\chrome.exe" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="0" DesktopApplicationLinkPath="c:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="0" DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\Internet Explorer.lnk" />
+        </start:Group>
+
+      </defaultlayout:StartLayout>
+
+    </StartLayoutCollection>
+
+    </DefaultLayoutOverride>
+
+</LayoutModificationTemplate>

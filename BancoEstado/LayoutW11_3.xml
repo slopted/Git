@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LayoutModificationTemplate
+    xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"
+    xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout"
+    xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout"
+    xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout"
+    Version="1">
+  <CustomTaskbarLayoutCollection>
+
+
+
+
+
+
+
+
+
+
+
+    <defaultlayout:StartLayout>
+      <taskbar:TaskbarPinList>
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EXTRA! Bundle for TCP-IP 32-bit\PA.EDP" />
+        <start:DesktopApplicationTile DesktopApplicationID="Chrome" />
+        <start:DesktopApplicationTile DesktopApplicationID="MSEdge" />
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="C:\Solem\CheckId\BioTray\BioWebSocketTray.exe" />
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="D:\NavNT\Bin\fin2plus.exe" />
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EXTRA! Bundle for TCP-IP 32-bit\Impresoras.EPP" />
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\EXTRA! Bundle for TCP-IP 32-bit\Pantalla Administrativa.EDP" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Office.EXCEL.EXE.15" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Office.WINWORD.EXE.15" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Office.OUTLOOK.EXE.15" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Office.POWERPNT.EXE.15" />
+        <start:DesktopApplicationTile DesktopApplicationLinkPath="D:\Defptr\Defptr.exe" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Windows.ControlPanel" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.Windows.Explorer" />
+        <start:DesktopApplicationTile DesktopApplicationID="Microsoft.SkyDrive.Desktop" />
+        <start:DesktopApplicationTile DesktopApplicationID="com.squirrel.Teams.Teams" />
+
+
+
+
+        {"pinnedList":[{"desktopAppId":"Chrome"},{"desktopAppId":"MSEdge"},{"desktopAppId":"Microsoft.Windows.ControlPanel"},{"desktopAppId":"Microsoft.Windows.Explorer"},{"desktopAppId":"Microsoft.SkyDrive.Desktop"}]}
+
+        <taskbar:DesktopApp DesktopApplicationID="Microsoft.Windows.Explorer" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" />
+      </taskbar:TaskbarPinList>
+    </defaultlayout:StartLayout>
+    
+    
+    <defaultlayout:TaskbarLayout>
+      <taskbar:TaskbarPinList>
+        <taskbar:DesktopApp DesktopApplicationID="Microsoft.Windows.Explorer" />
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\Command Prompt.lnk" />
+      </taskbar:TaskbarPinList>
+    </defaultlayout:TaskbarLayout>
+ </CustomTaskbarLayoutCollection>
+</LayoutModificationTemplate>
