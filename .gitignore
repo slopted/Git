@@ -1,0 +1,4 @@
+/Metro/.terraform/*
+/Metro/.terraform.lock.hcl
+/Metro/terraform.tfstate
+/Metro/terraform.tfstate.backup
