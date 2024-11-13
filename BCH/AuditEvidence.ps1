@@ -47,6 +47,4 @@ Get-ADComputer -Filter {OperatingSystem -Like "*Windows 10*" } -Property Name,Op
 Get-ADComputer -Filter {OperatingSystem -Like "*Windows 11*" } -Property Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion, DistinguishedName, Enabled | Select-Object Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion, DistinguishedName, Enabled  | Export-Csv -Path "C:\Temp\Vul10_!.csv" -NoTypeInformation -Encoding UTF8
 
 
--or OperatingSystem -Like "*Windows 11*"
-
 Get-ADComputer -Filter {OperatingSystem -Like "*Server 2012*"} -Property Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion, DistinguishedName, Enabled | Select-Object Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion, DistinguishedName, Enabled  | Export-Csv -Path "C:\Temp\Vul12.csv" -NoTypeInformation -Encoding UTF8 
