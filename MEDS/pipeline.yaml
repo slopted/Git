@@ -1,0 +1,82 @@
+trigger:
+- main
+ 
+pool:
+  vmImage: ubuntu-latest
+ 
+strategy:
+  matrix:
+    Python313:
+      python.version: '3.13'
+ 
+variables:
+- group: TESEO_GH_TOKENS
+- name: azureSubscription
+  value: 'MEDSNET-Connector'
+- name: functionAppName
+  value: 'medsnet-qa-teseo'
+- name: buildOutput
+  value: '$(Build.ArtifactStagingDirectory)'
+- name: pythonPackagesPath
+  value: '.python_packages/lib/site-packages'
+ 
+steps:
+# 1. Usar versión de Python
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+ 
+# 1.5. Generar requirements.txt desde pyproject.toml si es necesario
+- script: |
+    if [ ! -f requirements.txt ]; then
+      pip install .
+      pip freeze > requirements.txt
+    fi
+  displayName: 'Generate requirements.txt from pyproject.toml if missing'
+ 
+# 2. Instalar dependencias de la aplicación en la carpeta de paquetes
+- script: |
+    pip install --upgrade pip
+    git config --global url."https://$(GH_TOKEN):x-oauth-basic@github.com/MedsTI/".insteadOf "https://github.com/MedsTI/"
+    pip install -r requirements.txt --target=$(pythonPackagesPath)
+  displayName: 'Install app dependencies into .python_packages'
+  env:
+    GH_TOKEN: $(GH_TOKEN)
+ 
+# Debug: Verificar acceso a repo privado con el token
+- script: |
+    git config --global url."https://$(GH_TOKEN):x-oauth-basic@github.com/MedsTI/".insteadOf "https://github.com/MedsTI/"
+    git ls-remote https://github.com/MedsTI/Teseo-utils.git
+  displayName: 'Debug: Probar acceso a Teseo-utils con token'
+  env:
+    GH_TOKEN: $(GH_TOKEN)
+ 
+# Debug: Imprimir los primeros 5 caracteres del token (no exponer el token completo)
+- script: |
+    echo "GH_TOKEN (primeros 5): ${GH_TOKEN:0:5}"
+  displayName: 'Debug: Mostrar primeros 5 caracteres del GH_TOKEN'
+  env:
+    GH_TOKEN: $(GH_TOKEN)
+ 
+ 
+# 5. Empaquetar la Azure Function con las dependencias
+- task: ArchiveFiles@2
+  displayName: 'Archive Function App with vendored dependencies'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(buildOutput)/functionapp.zip'
+    replaceExistingArchive: true
+ 
+# 6. Desplegar a Azure Function App
+- task: AzureFunctionApp@2
+  displayName: 'Deploy to Azure Function App'
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    appType: 'functionAppLinux'
+    appName: '$(functionAppName)'
+    package: '$(buildOutput)/functionapp.zip'
+    deploymentMethod: 'zip'
+    SCM_DO_BUILD_DURING_DEPLOYMENT: false
