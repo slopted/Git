@@ -22,7 +22,7 @@ module "vnet-vdi-int-scl-001" {
 module "snet-vdi-int-com-001" {
   source                = "git::https://github.com/bch-devsecops/az-iac-back.git//mod_subnet"
   name                  = "snet-vdi-int-com-001"
-  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name
+  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name #UPDATE WITH THE RESOURCE GROUP NAME
   virtual_network_name  = module.vnet-vdi-int-scl-001.name
   address_prefix        = ["10.135.160.0/19"]
 }
@@ -30,7 +30,7 @@ module "snet-vdi-int-com-001" {
 module "snet-vdi-int-win-001" {
   source                = "git::https://github.com/bch-devsecops/az-iac-back.git//mod_subnet"
   name                  = "snet-vdi-int-win-001"
-  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name
+  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name #UPDATE WITH THE RESOURCE GROUP NAME
   virtual_network_name  = module.vnet-vdi-int-scl-001.name
   address_prefix        = ["10.135.192.0/19"]
 }
@@ -38,7 +38,7 @@ module "snet-vdi-int-win-001" {
 module "snet-vdi-int-otros-001" {
   source                = "git::https://github.com/bch-devsecops/az-iac-back.git//mod_subnet"
   name                  = "snet-vdi-int-otros-001"
-  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name
+  resource_group_name   = module.rg-vdi-int-scl-001-prod-01.name #UPDATE WITH THE RESOURCE GROUP NAME
   virtual_network_name  = module.vnet-vdi-int-scl-001.name
   address_prefix        = ["10.135.224.0/19"]
 }
