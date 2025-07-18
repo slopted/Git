@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "rg-vm-app-prod-000"
-    storage_account_name = "terraformprodas"
+    resource_group_name  = "rg-vm-app-pp-000"
+    storage_account_name = "terraformppas"
     container_name = "tfstates"
-    key = "azure.terraform.prod.testusr.rg.rgprodtestusr01.state"
+    key = "azure.terraform.pp.testusr.rg.rgpptestusr01.state"
   }
 }
 
