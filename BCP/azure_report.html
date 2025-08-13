@@ -1,0 +1,276 @@
+
+    <html>
+    <head>
+        <title>Azure Hierarchy Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; }
+            th { background-color: #f2f2f2; }
+        </style>
+    </head>
+    <body>
+        <h1>Azure Hierarchy Report</h1>
+        <h2>Summary</h2>
+        <ul>
+            <li>Management Groups: 4</li>
+            <li>Subscriptions: 9</li>
+            <li>Resource Groups: 88</li>
+            <li>Resources: 1267</li>
+        </ul>
+        <img src="azure_summary.png" alt="Azure Summary Chart" style="max-width:600px;">
+        <h2>Management Groups</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>name</th>
+      <th>display_name</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/providers/Microsoft.Management/managementGroups/MGBCP-CERDEV</td>
+      <td>MGBCP-CERDEV</td>
+      <td>MGBCP-CERDEV</td>
+      <td>Microsoft.Management/managementGroups</td>
+    </tr>
+    <tr>
+      <td>/providers/Microsoft.Management/managementGroups/MGBCP-OLD</td>
+      <td>MGBCP-OLD</td>
+      <td>MGBCP-OLD</td>
+      <td>Microsoft.Management/managementGroups</td>
+    </tr>
+    <tr>
+      <td>/providers/Microsoft.Management/managementGroups/MGBCP-PROD</td>
+      <td>MGBCP-PROD</td>
+      <td>MGBCP-PROD</td>
+      <td>Microsoft.Management/managementGroups</td>
+    </tr>
+    <tr>
+      <td>/providers/Microsoft.Management/managementGroups/MGBCP-SHD</td>
+      <td>MGBCP-SHD</td>
+      <td>MGBCP-SHD</td>
+      <td>Microsoft.Management/managementGroups</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Subscriptions</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>display_name</th>
+      <th>state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>BCP-SHD</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>6559d839-a930-475b-acce-8d34f0678606</td>
+      <td>BCP-SEC</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>Microsoft Azure Enterprise</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>6ad785b9-15e5-447f-b4cc-e193b633353a</td>
+      <td>BCP-CERDEV</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>cd8a3b59-ee28-4064-8176-d98bb4d250f8</td>
+      <td>BCP-POC-AGENT-IA</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>eaecf707-23e9-4ccc-9e9e-22bb86ca3a34</td>
+      <td>BCP-INOV</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>6cc16eb5-eef5-4ded-981a-24a8b83136a2</td>
+      <td>CREDISEGURO</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>4544ce5a-0ab6-4713-bfcf-f8711ba9167f</td>
+      <td>BCP-DRP</td>
+      <td>Enabled</td>
+    </tr>
+    <tr>
+      <td>fd356982-9598-40d0-866e-94af5b74bf38</td>
+      <td>BCP-PROD</td>
+      <td>Enabled</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Resource Groups</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subscription_id</th>
+      <th>resource_group</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>cloud-shell-storage-eastus</td>
+      <td>eastus</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>NetworkWatcherRG</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-WU-ID-SHD</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>BCP-SHD-RGBastion</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>RGDmz</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>RGCognitiveServicesATMs</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>RGNormas</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>VPNBCP</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>62f8800d-afa8-448f-a885-d96ffe1de1a1</td>
+      <td>cloud-shell-storage-eastus</td>
+      <td>eastus</td>
+    </tr>
+  </tbody>
+</table>
+        <h2>Resources</h2>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>subscription_id</th>
+      <th>resource_group</th>
+      <th>id</th>
+      <th>name</th>
+      <th>type</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>cloud-shell-storage-eastus</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/cloud-shell-storage-eastus/providers/Microsoft.Storage/storageAccounts/cs2100320023544361e</td>
+      <td>cs2100320023544361e</td>
+      <td>Microsoft.Storage/storageAccounts</td>
+      <td>eastus</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/publicIPAddresses/PIPBCPWUVGWSHD01</td>
+      <td>PIPBCPWUVGWSHD01</td>
+      <td>Microsoft.Network/publicIPAddresses</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/virtualNetworks/vnet-bcpb-hub-westus2</td>
+      <td>vnet-bcpb-hub-westus2</td>
+      <td>Microsoft.Network/virtualNetworks</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/localNetworkGateways/LGWBCPWULPZ01</td>
+      <td>LGWBCPWULPZ01</td>
+      <td>Microsoft.Network/localNetworkGateways</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/virtualNetworkGateways/VGWBPCWUSHD01</td>
+      <td>VGWBPCWUSHD01</td>
+      <td>Microsoft.Network/virtualNetworkGateways</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/connections/CN-WU-HUB-LPZ01</td>
+      <td>CN-WU-HUB-LPZ01</td>
+      <td>Microsoft.Network/connections</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/networkSecurityGroups/NSG-Firewall</td>
+      <td>NSG-Firewall</td>
+      <td>Microsoft.Network/networkSecurityGroups</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/publicIPAddresses/BTBFTG00AZ-ip</td>
+      <td>BTBFTG00AZ-ip</td>
+      <td>Microsoft.Network/publicIPAddresses</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Network/networkInterfaces/btbftg00az761_z1</td>
+      <td>btbftg00az761_z1</td>
+      <td>Microsoft.Network/networkInterfaces</td>
+      <td>westus2</td>
+    </tr>
+    <tr>
+      <td>c7955446-5117-4881-85ca-a0b5cdb913e7</td>
+      <td>RG-BCP-WU-NET-SHD</td>
+      <td>/subscriptions/c7955446-5117-4881-85ca-a0b5cdb913e7/resourceGroups/RG-BCP-WU-NET-SHD/providers/Microsoft.Compute/virtualMachines/BTBFTG00AZ</td>
+      <td>BTBFTG00AZ</td>
+      <td>Microsoft.Compute/virtualMachines</td>
+      <td>westus2</td>
+    </tr>
+  </tbody>
+</table>
+        <p>Full data available in <code>azure_report.xlsx</code>.</p>
+    </body>
+    </html>
+    
